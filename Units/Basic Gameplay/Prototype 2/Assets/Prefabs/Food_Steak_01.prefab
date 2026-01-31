@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 8519733155194284316}
   - component: {fileID: 7957897335201123349}
   - component: {fileID: 7847711857311378207}
+  - component: {fileID: 8949882133056955107}
+  - component: {fileID: 670872963758221365}
   m_Layer: 0
   m_Name: Food_Steak_01
   m_TagString: Untagged
@@ -113,3 +115,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faf82a2e5dcd6c148ba17f5bc80f5d9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &8949882133056955107
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4624374869126203548}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.3548733, y: 0.08559368, z: 0.44871235}
+  m_Center: {x: 0.013023317, y: 0.04279684, z: -0.049162865}
+--- !u!54 &670872963758221365
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4624374869126203548}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
