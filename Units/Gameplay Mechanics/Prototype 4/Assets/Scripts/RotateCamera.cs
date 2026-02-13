@@ -2,7 +2,10 @@ using UnityEngine;
 
 public class RotateCamera : MonoBehaviour
 {
+    // Variables
     public float rotationSpeed;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         
@@ -13,6 +16,5 @@ public class RotateCamera : MonoBehaviour
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         transform.Rotate(Vector3.up, horizontalInput * rotationSpeed * Time.deltaTime);
-        
     }
 }
