@@ -1,7 +1,7 @@
 COP2671 - Final Project  
-Name: Wendell Oliveira
+Name: Kenny (Juan) Garcia
 
-Title: Matador
+Title: Paradox Loop
 
 Overview:
 Matador is a fast-paced, point-based mini game where players must click (shoot) targets to earn points while avoiding bad targets and collecting power-ups that slow down time. The game ends when the timer reaches zero or when a non-bad target is missed.
