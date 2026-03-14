@@ -5,9 +5,9 @@ public class CameraFollow : MonoBehaviour
     // Variables for camera and player
     public GameObject player;
     public Transform focalPoint;
-    private float offsetX = 0f;
-    private float offsetY = 2f;
-    private float offsetZ = -6f;
+    public float offsetX = 0f;
+    public float offsetY = 4.33f;
+    public float offsetZ = -6.45f;
     private Vector3 offset;
 
 

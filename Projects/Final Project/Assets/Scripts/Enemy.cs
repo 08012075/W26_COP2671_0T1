@@ -5,6 +5,7 @@ public class Enemy : MonoBehaviour
 {
     // Variables
     public float speed = 3.0f;
+    public float playerRange = 10.0f;
     private Rigidbody enemyRb;
     private GameObject player;
 
@@ -20,8 +21,15 @@ public class Enemy : MonoBehaviour
     {
         Vector3 lookDirection = (player.transform.position - transform.position).normalized;
 
-        enemyRb.AddForce(lookDirection * speed);
+        // Only lets ball roll towards player if players close enough
+        float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
 
+        if (distanceToPlayer < 5f) 
+        {
+            enemyRb.AddForce(lookDirection * speed);
+        }
+        
+        // Destroys object after falling off map
         if (transform.position.y < -10)
         {
             Destroy(gameObject);
