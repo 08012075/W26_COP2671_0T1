@@ -12,12 +12,18 @@ public class SwitchMechanic : MonoBehaviour
     public Material futureSkybox;
     public int timelinePowerCount = 0;
     private bool inPresent = true;
+    public AudioSource presentMusic;
+    public AudioSource futureMusic;
+    public AudioClip powerUpCollectSound;
+    public AudioClip powerUpUseSound;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        // Starts with present music volume playing
+        presentMusic.volume = 0.65f;
+        futureMusic.volume = 0f;
     }
 
     // Update is called once per frame
@@ -26,6 +32,13 @@ public class SwitchMechanic : MonoBehaviour
         // If player presses t and also has at least one power up
         if (Input.GetKeyDown(KeyCode.T) && timelinePowerCount > 0)
         {
+            // Plays powerup sound from player audio source
+            AudioSource playerAudio = GetComponent<AudioSource>();
+            if (playerAudio != null)
+            {
+                playerAudio.PlayOneShot(powerUpUseSound);
+            }
+
             SwitchTimeline();
             timelinePowerCount--;
         }
@@ -47,6 +60,10 @@ public class SwitchMechanic : MonoBehaviour
 
             // Changes skybox for future
             RenderSettings.skybox = futureSkybox;
+
+            // Changes future music volume 
+            presentMusic.volume = 0f;
+            futureMusic.volume = 0.65f;
         }
         else
         {
@@ -59,6 +76,10 @@ public class SwitchMechanic : MonoBehaviour
 
             // Changes skybox for present
             RenderSettings.skybox = presentSkybox;
+
+            // Changes present music volume 
+            presentMusic.volume = 0.65f;
+            futureMusic.volume = 0f;
         }
 
         // Switches inPresent to either false or true depending on what timeline
@@ -70,6 +91,13 @@ public class SwitchMechanic : MonoBehaviour
         // Destroys powerup object once player grabs it
         if (other.CompareTag("TimePower"))
         {
+            // Plays powerup sound from player audio source
+            AudioSource playerAudio = GetComponent<AudioSource>();
+            if (playerAudio != null)
+            {
+                playerAudio.PlayOneShot(powerUpCollectSound);
+            }
+
             timelinePowerCount++;
             Destroy(other.gameObject);
         }
