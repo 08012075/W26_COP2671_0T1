@@ -10,6 +10,7 @@ TagManager:
   - TimePower
   - Collect
   - Ground
+  - ManualEnemy
   layers:
   - Default
   - TransparentFX
