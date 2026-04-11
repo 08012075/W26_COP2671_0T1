@@ -21,8 +21,8 @@ public class SwitchMechanic : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // Starts with present music volume playing
-        presentMusic.volume = 0.65f;
+        // Starts with neither music playing so menu music can play
+        presentMusic.volume = 0f;
         futureMusic.volume = 0f;
     }
 
@@ -63,7 +63,7 @@ public class SwitchMechanic : MonoBehaviour
 
             // Changes future music volume 
             presentMusic.volume = 0f;
-            futureMusic.volume = 0.65f;
+            futureMusic.volume = 0.546f;
         }
         else
         {
@@ -78,7 +78,7 @@ public class SwitchMechanic : MonoBehaviour
             RenderSettings.skybox = presentSkybox;
 
             // Changes present music volume 
-            presentMusic.volume = 0.65f;
+            presentMusic.volume = 0.546f;
             futureMusic.volume = 0f;
         }
 

@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
     private AudioSource audioSource;
     public AudioClip playerImpact;
 
+    // Game manager variable
+    private GameManager gameManager;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,19 +25,24 @@ public class PlayerController : MonoBehaviour
         // Adds audio source component
         audioSource = GetComponent<AudioSource>();
 
+        // Game manager
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Variables for forward, backward, and left and right movement
-        float forwardInput = Input.GetAxis("Vertical");
-        float leftRightInput = Input.GetAxis("Horizontal");
+        // If statement for title screen so player cant move
+        if (gameManager.isGamePlaying)
+        {
+            // Variables for forward, backward, and left and right movement
+            float forwardInput = Input.GetAxis("Vertical");
+            float leftRightInput = Input.GetAxis("Horizontal");
 
-        playerRb.AddForce(focalPoint.transform.forward * speed * forwardInput * 0.5f * Time.deltaTime);
-        playerRb.AddForce(focalPoint.transform.right * speed * leftRightInput * 0.5f * Time.deltaTime);
-
-        
+            playerRb.AddForce(focalPoint.transform.forward * speed * forwardInput * 0.5f * Time.deltaTime);
+            playerRb.AddForce(focalPoint.transform.right * speed * leftRightInput * 0.5f * Time.deltaTime);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
