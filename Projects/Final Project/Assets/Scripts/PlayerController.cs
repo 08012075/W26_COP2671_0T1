@@ -42,6 +42,12 @@ public class PlayerController : MonoBehaviour
 
             playerRb.AddForce(focalPoint.transform.forward * speed * forwardInput * 0.5f * Time.deltaTime);
             playerRb.AddForce(focalPoint.transform.right * speed * leftRightInput * 0.5f * Time.deltaTime);
+
+            // If player falls off map
+            if (transform.position.y <-10f)
+            {
+                gameManager.GameOver();
+            }
         }
     }
 

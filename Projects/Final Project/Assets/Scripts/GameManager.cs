@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     // Scoreboard variables
     public TextMeshProUGUI coinCountText;
     public TextMeshProUGUI powerupCountText;
-    private int coinCount = 0;
+    public int coinCount = 0;
 
     // Switch mechanic for powerup count
     public SwitchMechanic switchMechanic;
@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
     // Camera variables for menu
     public Camera menuCamera;
     public Camera gameCamera;
+
+    // Game Over Variable
+    public GameObject gameOverText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -85,7 +88,7 @@ public class GameManager : MonoBehaviour
         // If timer hits 0 game ends
         if (timer <= 0)
         {
-            gameOver = true;
+            GameOver();
         }
     }
 
@@ -106,5 +109,14 @@ public class GameManager : MonoBehaviour
     private void UpdatePowerupText()
     {
         powerupCountText.text = "POWERUPS: " + switchMechanic.timelinePowerCount;
+    }
+
+    public void GameOver()
+    {
+        gameOver = true;
+        gameOverText.SetActive(true);
+        menuCamera.gameObject.SetActive(true);
+        gameCamera.gameObject.SetActive(false);
+        Time.timeScale = 0;
     }
 }
